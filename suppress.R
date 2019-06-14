@@ -4,7 +4,7 @@ library(tidyr)
 library(stringr)
 
 rbool <- function(n) {
-  bools <- sample(c(TRUE,FALSE), nobs, replace=T)
+  bools <- sample(c(TRUE,FALSE), n, replace=T)
   return(bools)
 }
 
@@ -14,13 +14,13 @@ make_data <- function(nobs=10) {
   dates <- start_dt + months(seq(nobs) - 1)
   
   x <- runif(nobs)
-  x.suppress <- rbool(n)
+  x.suppress <- rbool(nobs)
   
   y <- runif(nobs)
-  y.suppress <- sample(c(TRUE,FALSE), nobs, replace=T)
+  y.suppress <- rbool(nobs)
   
   z <- runif(nobs)
-  z.suppress <- sample(c(TRUE,FALSE), nobs, replace=T)
+  z.suppress <- rbool(nobs)
   
   data <- data.frame(
     date=dates,
