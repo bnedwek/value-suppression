@@ -48,7 +48,7 @@ data.publish <- data %>%
     val.publish = ifelse(suppress, NA, val)
   )
 
-data.publish %>%
+data.suppressed <- data.publish %>%
   gather(measure_type, measure, -date, -sloos_question) %>%
   unite("colname", sloos_question, measure_type) %>%
   spread(colname, measure) %>%
